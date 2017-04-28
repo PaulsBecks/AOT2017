@@ -1,0 +1,57 @@
+{
+  "name": "Simple World",
+  "world" : {
+    "nodes": [
+      {
+        "label": "A",
+        "food": 0,
+        "x": 0,
+        "y": 1
+      },
+      {
+        "label": "B",
+        "food": 0,
+        "x": 0,
+        "y": 2
+      },
+      {
+        "label": "C",
+        "food": 0,
+        "x": 1,
+        "y": 1
+      },
+      {
+        "label": "D",
+        "food": 0,
+        "x": 2,
+        "y": 1
+      }
+    ],
+    "edges": [
+      {
+        "label": "AB",
+        "node1": "A",
+        "node2": "B",
+        "pheromone": 0.0
+      },
+      {
+        "label": "AC",
+        "node1": "A",
+        "node2": "C",
+        "pheromone": 0.0
+      },
+      {
+        "label": "BC",
+        "node1": "C",
+        "node2": "B",
+        "pheromone": 0.0
+      },
+      {
+        "label": "CD",
+        "node1": "C",
+        "node2": "D",
+        "pheromone": 0.0
+      }
+    ]
+  }
+}

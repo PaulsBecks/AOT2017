@@ -1,12 +1,21 @@
 /**
  * Created by paul on 27.04.17.
  */
+
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.SingleGraph;
 import org.graphstream.ui.swingViewer.Viewer;
 
+import java.io.File;
+import java.io.FileReader;
 import java.util.LinkedList;
 import java.util.List;
+
+import org.json.*;
+import org.json.simple.*;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 public class Controller {
 
@@ -16,35 +25,64 @@ public class Controller {
 
     public Controller(){
         //new graph from input
-        this.graph = new SingleGraph("Aufgabe 1");
+        String path = "src"+File.separator+ "main"+File.separator+"resources"+File.separator+"world"+File.separator;
+        this.graph = this.loadGraphFile(path+"simple_world.json");
 
-        Node a = graph.addNode("A" );
-        a.setAttribute("food", 2);
-        a.setAttribute("xy", 0,1);
 
-        Node b = graph.addNode("B" );
-        b.setAttribute("xy", 0,2);
+    }
 
-        Node c = graph.addNode("C" );
-        c.setAttribute("xy", 1,1);
+    private Graph loadGraphFile(String location)  {
+        String jsonString = "";
 
-        Node d = graph.addNode("D" );
-        d.setAttribute("xy", 2,1);
+        JSONParser parser = new JSONParser();
+        JSONObject json = null;
+        try {
 
-        graph.addEdge("AB", "A", "B").setAttribute("pheromon", 0f);
+            Object obj = parser.parse(new FileReader(location));
 
-        graph.addEdge("BC", "B", "C").setAttribute("pheromon", 0f);
-        graph.addEdge("CA", "C", "A").setAttribute("pheromon", 0f);
-        graph.addEdge("CD", "C", "D").setAttribute("pheromon", 0f);
+            json = (JSONObject) obj;
+        }
+        catch (Exception e){
+            //TODO: handle exception
+            System.out.println("No file at given location");
+            e.printStackTrace();
+        }
+        JSONObject world = (JSONObject) json.get("world");
+        JSONArray nodes = (JSONArray) world.get("nodes");
+        JSONArray edges = (JSONArray) world.get("edges");
+
+        String name = (String) world.get("name");
+
+        Graph graph = new SingleGraph("Aufgabe 1");
+
+        //add nodes to graph
+        for(int i=0; i<nodes.size(); i++){
+            JSONObject node = (JSONObject) nodes.get(i);
+            Node n = graph.addNode((String) node.get("label"));
+            n.addAttribute("xy", (Long) node.get("x"), (Long) node.get("y"));
+            n.addAttribute("food", (Long) node.get("food"));
+            n.addAttribute("ui.label", (String)node.get("label"));
+        }
+
+        //add edges to graph
+
+        for(int i=0; i<edges.size(); i++){
+            JSONObject edge = (JSONObject) edges.get(i);
+            Edge e = graph.addEdge((String)edge.get("label"), (String)edge.get("node1"), (String)edge.get("node2"));
+            e.addAttribute("pheromone", (Double)edge.get("pheromone"));
+            e.addAttribute("ui.label", (Double)edge.get("pheromone"));
+        }
 
         //new Base
-        this.base = new Base(d);
+        this.base = new Base(graph.getNode("D"));
 
         //new Ants
         ants = new LinkedList<Ant>();
         for (int i = 0; i<1;i++) {
             this.ants.add(new Ant(base.getNode()));
         }
+
+        return graph;
     }
 
     public static void main(String... args){

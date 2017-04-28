@@ -41,8 +41,8 @@ public class Ant {
 
         for(Edge edge:edges){
             choice = edge;
-            System.out.println(edge.getAttribute("pheromon"));
-            float pheromon = edge.getAttribute("pheromon");
+            System.out.println(edge.getAttribute("pheromone"));
+            double pheromon = edge.getAttribute("pheromone");
             allTogether += pheromon;
             if(pheromon > 0f){
                 good_edges.add(edge);
