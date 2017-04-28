@@ -61,6 +61,7 @@ public class Controller {
             Node n = graph.addNode((String) node.get("label"));
             n.addAttribute("xy", (Long) node.get("x"), (Long) node.get("y"));
             n.addAttribute("food", (Long) node.get("food"));
+            n.addAttribute("ants", (Integer) 0);
             n.addAttribute("ui.label", (String)node.get("label"));
         }
 
@@ -78,9 +79,12 @@ public class Controller {
 
         //new Ants
         ants = new LinkedList<Ant>();
-        for (int i = 0; i<1;i++) {
+        int ants_amount = 1;
+        for (int i = 0; i<ants_amount;i++) {
             this.ants.add(new Ant(base.getNode()));
+
         }
+        this.base.getNode().setAttribute("ants", ants_amount);
 
         return graph;
     }
@@ -113,8 +117,15 @@ public class Controller {
     }
 
     private void updateGraph() {
-        //update pheromon on edges
+        //update pheromone on edges
+        for(Edge edge: this.graph.getEachEdge()){
+            edge.setAttribute("ui.label", edge.getAttribute("pheromone"));
+        }
 
+        //update food and ants in nodes
+         for(Node node: this.graph.getEachNode()){
+            node.setAttribute("ui.label", node.toString()+";"+node.getAttribute("food")+";"+node.getAttribute("ants"));
+         }
     }
 
     private void addAdge() {

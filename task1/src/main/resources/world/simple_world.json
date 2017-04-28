@@ -25,6 +25,36 @@
         "food": 0,
         "x": 2,
         "y": 1
+      },
+      {
+        "label": "E",
+        "food": 0,
+        "x": 3,
+        "y": 1
+      },
+      {
+        "label": "F",
+        "food": 0,
+        "x": 1,
+        "y": 2
+      },
+      {
+        "label": "G",
+        "food": 0,
+        "x": 1,
+        "y": 3
+      },
+      {
+        "label": "H",
+        "food": 0,
+        "x": 3,
+        "y": 2
+      },
+      {
+        "label": "I",
+        "food": 0,
+        "x": 3,
+        "y": 3
       }
     ],
     "edges": [
@@ -51,7 +81,56 @@
         "node1": "C",
         "node2": "D",
         "pheromone": 0.0
+      },
+      {
+        "label": "DE",
+        "node1": "E",
+        "node2": "D",
+        "pheromone": 0.0
+      },
+      {
+        "label": "EF",
+        "node1": "E",
+        "node2": "F",
+        "pheromone": 0.0
+      },
+      {
+        "label": "FG",
+        "node1": "F",
+        "node2": "G",
+        "pheromone": 0.0
+      },
+      {
+        "label": "FH",
+        "node1": "F",
+        "node2": "H",
+        "pheromone": 0.0
+      },
+      {
+        "label": "FB",
+        "node1": "F",
+        "node2": "B",
+        "pheromone": 0.0
+      },
+      {
+        "label": "HI",
+        "node1": "H",
+        "node2": "I",
+        "pheromone": 0.0
+      },
+      {
+        "label": "GI",
+        "node1": "G",
+        "node2": "I",
+        "pheromone": 0.0
+      },
+      {
+        "label": "EH",
+        "node1": "E",
+        "node2": "H",
+        "pheromone": 0.0
       }
+
     ]
   }
 }
