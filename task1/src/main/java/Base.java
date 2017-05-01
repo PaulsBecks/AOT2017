@@ -7,12 +7,18 @@ import org.graphstream.graph.*;
 public class Base {
 
     private Node node;
+    private int food;
 
     public Base(Node node){
+        this.food = 0;
         this.node = node;
     }
 
     public Node getNode() {
-        return node;
+        return this.node;
+    }
+
+    public void addFood() {
+        this.food += 1;
     }
 }

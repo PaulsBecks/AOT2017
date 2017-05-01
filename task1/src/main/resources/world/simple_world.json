@@ -1,0 +1,136 @@
+{
+  "name": "Simple World",
+  "world" : {
+    "nodes": [
+      {
+        "label": "A",
+        "food": 0,
+        "x": 0,
+        "y": 1
+      },
+      {
+        "label": "B",
+        "food": 0,
+        "x": 0,
+        "y": 2
+      },
+      {
+        "label": "C",
+        "food": 0,
+        "x": 1,
+        "y": 1
+      },
+      {
+        "label": "D",
+        "food": 0,
+        "x": 2,
+        "y": 1
+      },
+      {
+        "label": "E",
+        "food": 0,
+        "x": 3,
+        "y": 1
+      },
+      {
+        "label": "F",
+        "food": 0,
+        "x": 1,
+        "y": 2
+      },
+      {
+        "label": "G",
+        "food": 0,
+        "x": 1,
+        "y": 3
+      },
+      {
+        "label": "H",
+        "food": 10,
+        "x": 3,
+        "y": 2
+      },
+      {
+        "label": "I",
+        "food": 0,
+        "x": 3,
+        "y": 3
+      }
+    ],
+    "edges": [
+      {
+        "label": "AB",
+        "node1": "A",
+        "node2": "B",
+        "pheromone": 0.0
+      },
+      {
+        "label": "AC",
+        "node1": "A",
+        "node2": "C",
+        "pheromone": 0.0
+      },
+      {
+        "label": "BC",
+        "node1": "C",
+        "node2": "B",
+        "pheromone": 0.0
+      },
+      {
+        "label": "CD",
+        "node1": "C",
+        "node2": "D",
+        "pheromone": 0.0
+      },
+      {
+        "label": "DE",
+        "node1": "E",
+        "node2": "D",
+        "pheromone": 0.0
+      },
+      {
+        "label": "EF",
+        "node1": "E",
+        "node2": "F",
+        "pheromone": 0.0
+      },
+      {
+        "label": "FG",
+        "node1": "F",
+        "node2": "G",
+        "pheromone": 0.0
+      },
+      {
+        "label": "FH",
+        "node1": "F",
+        "node2": "H",
+        "pheromone": 0.0
+      },
+      {
+        "label": "FB",
+        "node1": "F",
+        "node2": "B",
+        "pheromone": 0.0
+      },
+      {
+        "label": "HI",
+        "node1": "H",
+        "node2": "I",
+        "pheromone": 0.0
+      },
+      {
+        "label": "GI",
+        "node1": "G",
+        "node2": "I",
+        "pheromone": 0.0
+      },
+      {
+        "label": "EH",
+        "node1": "E",
+        "node2": "H",
+        "pheromone": 0.0
+      }
+
+    ]
+  }
+}
