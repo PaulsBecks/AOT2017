@@ -76,7 +76,6 @@ public class Ant {
     }
 
     private void walk(Edge edge) {
-
         //remove yourself from node
         NodeHelper.removeAnt(this.getCurrent());
 
@@ -96,6 +95,7 @@ public class Ant {
 
         //add current node to visited
         visited.add(this.getCurrent());
+
 
     }
 

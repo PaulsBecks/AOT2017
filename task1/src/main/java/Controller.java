@@ -29,7 +29,6 @@ public class Controller {
         String path = "src"+File.separator+ "main"+File.separator+"resources"+File.separator+"world"+File.separator;
         this.graph = this.loadGraphFile(path+"simple_world.json");
 
-
     }
 
     private Graph loadGraphFile(String location)  {
@@ -67,7 +66,6 @@ public class Controller {
         }
 
         //add edges to graph
-
         for(int i=0; i<edges.size(); i++){
             JSONObject edge = (JSONObject) edges.get(i);
             Edge e = graph.addEdge((String)edge.get("label"), (String)edge.get("node1"), (String)edge.get("node2"));
@@ -83,6 +81,7 @@ public class Controller {
         int ants_amount = 10;
         for (int i = 0; i<ants_amount;i++) {
             this.ants.add(new Ant(base));
+
         }
         this.base.getNode().setAttribute("ants", ants_amount);
 
